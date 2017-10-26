@@ -1,4 +1,4 @@
-var GAME_DURATION_MILLIS = 30000;
+var GAME_DURATION_MILLIS = 60000;
 var MAX_NUM_OF_GAMES = 2
 var game_id = 0;
 var game_expiration = 0;
@@ -150,7 +150,7 @@ function vote(res, db, gameId, option) {
 						status : "success"
 					});
 				}
-				
+
 				if (option == 1) {
 					game.increment('option_1', {by: 1}).then(() => {
 						res.send({
