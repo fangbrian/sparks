@@ -24,19 +24,19 @@ function sendGame1(res, game) {
 				options: [
 					{
 						option_id: "1",
-						num_of_votes: "0",
+						num_of_votes: game.option_1,
 						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
 						description: "option 1"
 					},
 					{
 						option_id: "2",
-						num_of_votes: "0",
+						num_of_votes: game.option_2,
 						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
 						description: "option 2"
 					},
 					{
 						option_id: "3",
-						num_of_votes: "0",
+						num_of_votes: game.option_3,
 						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
 						description: "option 3"
 					}
@@ -67,19 +67,19 @@ function sendGame2(res, game) {
 				options: [
 					{
 						option_id: "1",
-						num_of_votes: "0",
+						num_of_votes: game.option_1,
 						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
 						description: "option 1"
 					},
 					{
 						option_id: "2",
-						num_of_votes: "0",
+						num_of_votes: game.option_2,
 						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
 						description: "option 2"
 					},
 					{
 						option_id: "3",
-						num_of_votes: "0",
+						num_of_votes: game.option_3,
 						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
 						description: "option 3"
 					}
@@ -139,8 +139,52 @@ function initializeGame(res, db) {
 	}
 }
 
+function vote(res, db, gameId, option) {
+	db.GameTable.find({
+				where : { 
+					game_id : String(gameId)
+				}
+			}).then(game => {
+				if (!game) {
+					res.send({
+						status : "success"
+					});
+				}
+				
+				if (option == 1) {
+					game.increment('option_1', {by: 1}).then(() => {
+						res.send({
+							status : "success"
+						});
+					});
+				} else if (option == 2) {
+					game.increment('option_2', {by: 1}).then(() => {
+						res.send({
+							status : "success"
+						});
+					});
+				} else if (option == 3) {
+					game.increment('option_3', {by: 1}).then(() => {
+						res.send({
+							status : "success"
+						});
+					});
+				}
+			});
+}
+
 GameManager.prototype.getGame = function(req, res, db) { 
 	initializeGame(res, db);
+}
+
+GameManager.prototype.vote = function(req, res, db) { 
+	if (req.body.game_id && req.body.option) {
+		vote(res, db, req.body.game_id, req.body.option);
+	} else {
+		res.send({
+			status : "success"
+		});
+	}
 }
 
 module.exports = new GameManager();

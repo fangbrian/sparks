@@ -20,6 +20,10 @@ app.get('/game', function(req, res) {
 	gameManager.getGame(req, res, db);
 });
 
+app.post('/game', function(req, res) {
+	gameManager.vote(req, res, db);
+});
+
 db.sequelize.sync().then(function() {
   	app.listen(process.env.PORT || 8080);
 });
