@@ -16,6 +16,10 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded());
 
+app.get('/', function(req, res) {
+	res.sendfile('./views/index.html');
+});
+
 app.get('/game', function(req, res) {
 	gameManager.getGame(req, res, db);
 });

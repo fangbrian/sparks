@@ -57,12 +57,6 @@ function sendGame2(res, game) {
 					img_url: "https://images.unsplash.com/photo-1496361060943-f0ae4e7228f4?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
 					description: "This is a bagel", 
 					video_url: ""
-				}, 
-				{
-					profile_id: "3",
-					img_url: "https://images.unsplash.com/photo-1496361060943-f0ae4e7228f4?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
-					description: "This is a bagel", 
-					video_url: ""
 				}],
 				options: [
 					{
