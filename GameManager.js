@@ -122,11 +122,19 @@ function initializeGame(res, db) {
 		  	option_2: "0",
 		  	option_3: "0"
 		}).then(game => {
-			sendGame1(res, game);
+			if (game_id % MAX_NUM_OF_GAMES == 0) { 
+				sendGame1(res, game);
+			} else if (game_id % MAX_NUM_OF_GAMES == 1) {
+				sendGame2(res, game);
+			}
 		});
 	} else {
 		sendExistingTable(game_id, function(game) {
+			if (game_id % MAX_NUM_OF_GAMES == 0) { 
 				sendGame1(res, game);
+			} else if (game_id % MAX_NUM_OF_GAMES == 1) {
+				sendGame2(res, game);
+			}
 		});
 	}
 }
