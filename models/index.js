@@ -1,4 +1,6 @@
 var gameTable;
+var profileTable;
+var optionsTable;
 
 if (!global.hasOwnProperty('db')) {
   var Sequelize = require('sequelize')
@@ -6,17 +8,17 @@ if (!global.hasOwnProperty('db')) {
 
   // if (process.env.HEROKU_POSTGRESQL_BRONZE_URL) {
     // the application is executed on Heroku ... use the postgres database
-    // sequelize = new Sequelize("postgres://rdojbrmjsgnbyg:9370d9ba61efff4b6be7f5fd46fe2391a55de46059e28c29d5003a7e161aeacc@ec2-184-73-247-240.compute-1.amazonaws.com:5432/dc5p5rqe91nvmf", {
-    //   dialect:  'postgres',
-    //   protocol: 'postgres',
-    //   port:     5432,
-    //   host:     "ec2-184-73-247-240.compute-1.amazonaws.com",
-    //   logging:  true,
+    sequelize = new Sequelize("postgres://ffcyxdfbfjvozq:9c3b3d81847eaadfe16e032c94e95549d0ae18b9c5deb4357dd9bf2e4f79e1ee@ec2-174-129-33-159.compute-1.amazonaws.com:5432/db857ppgm0935d", {
+      dialect:  'postgres',
+      protocol: 'postgres',
+      port:     5432,
+      host:     "ec2-174-129-33-159.compute-1.amazonaws.com",
+      logging:  true,
 
-    //   dialectOptions: {
-    //     ssl: true
-    //   }
-    // });
+      dialectOptions: {
+        ssl: true
+      }
+    });
   // } else {
   //   // the application is executed on the local machine ... use mysql
   //   sequelize = new Sequelize('example-app-db', 'root', process.env.DB_PASSWORD, {
@@ -24,13 +26,15 @@ if (!global.hasOwnProperty('db')) {
   //   });
   // }
 
-  // gameTable = sequelize.import(__dirname + '/game');
+  gameTable = sequelize.import(__dirname + '/game');
+  profileTable = sequelize.import(__dirname + '/profile');
+  optionsTable = sequelize.import(__dirname + '/options');
 
-  // global.db = {
-  //   Sequelize: Sequelize,
-  //   sequelize: sequelize,
-  //   Game: gameTable
-  // }
+  global.db = {
+    Sequelize: Sequelize,
+    sequelize: sequelize,
+    GameTable: gameTable,
+  }
 }
 
 module.exports = global.db

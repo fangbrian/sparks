@@ -1,15 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
-  	var requestTable = sequelize.define("PrayerRequest", {
-	    request: DataTypes.STRING,
-	  	timestamp: DataTypes.DATE,
-	  	hearts: DataTypes.INTEGER
+  	var gameTable = sequelize.define("Game", {
+	    game_id: DataTypes.STRING,
+	  	expiration: DataTypes.STRING,
+	  	type: DataTypes.STRING,
+	  	profile_1_id: DataTypes.STRING,
+	  	profile_2_id: DataTypes.STRING,
+	  	option_1_id: DataTypes.STRING,
+	  	option_2_id: DataTypes.STRING,
+	  	option_3_id: DataTypes.STRING
 	  });
 
-  	return requestTable;
-	// request.create({request: "This is a test", timestamp: new Date()}).then(prayerRequest => {
- //  		// you can now access the newly created task via the variable task
- //  		console.log(prayerRequest.get({
- //  			plain: true
- //  		}));
-	// });
+  	return gameTable;
 }
