@@ -29,19 +29,19 @@ function sendGame1(res, game, isComplete) {
 						option_id: "1",
 						num_of_votes: game.option_1,
 						img_url: "http://res.cloudinary.com/cmb/image/upload/c_scale,w_500/c_crop,g_center,h_333,w_333/v1509135133/test_folder/Teddy.jpg",
-						description: "option 1"
+						description: "Woof"
 					},
 					{
 						option_id: "2",
 						num_of_votes: game.option_2,
 						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509134876/test_folder/alice.jpg",
-						description: "option 2"
+						description: "Mozzarella and Autumn are my two favorite things!"
 					},
 					{
 						option_id: "3",
 						num_of_votes: game.option_3,
 						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509134881/test_folder/david_miller.jpg",
-						description: "option 3"
+						description: "I have an eye roll that would put Liz Lemon to shame!"
 					}
 				]
 			}
@@ -67,19 +67,19 @@ function sendGame2(res, game, isComplete) {
 						option_id: "1",
 						num_of_votes: game.option_1,
 						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509136053/pineapple3_jinryr.jpg",
-						description: "option 1"
+						description: "I am an excellent dancer and enjoy tropical fruits!"
 					},
 					{
 						option_id: "2",
 						num_of_votes: game.option_2,
 						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509134898/test_folder/cher.jpg",
-						description: "option 2"
+						description: "I was really popular before you were born! And my hair is amazing!"
 					},
 					{
 						option_id: "3",
 						num_of_votes: game.option_3,
 						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509134886/test_folder/melissa.jpg",
-						description: "option 3"
+						description: " I am an expert eavesdropper and I enjoy Noah's Bagels!"
 					}
 				]
 			}
