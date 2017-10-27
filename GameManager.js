@@ -28,7 +28,7 @@ function sendGame1(res, game, isComplete) {
 					{
 						option_id: "1",
 						num_of_votes: game.option_1,
-						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509135133/test_folder/Teddy.jpg",
+						img_url: "http://res.cloudinary.com/cmb/image/upload/c_scale,w_500/c_crop,g_center,h_333,w_333/v1509135133/test_folder/Teddy.jpg",
 						description: "option 1"
 					},
 					{
