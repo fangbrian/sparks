@@ -1,3 +1,7 @@
+var option1VotesOld = 0;
+var option2VotesOld = 0;
+var option3VotesOld = 0;
+
 function fetchGame() { 
 	$.ajax({
 	    type: 'GET',
@@ -21,6 +25,11 @@ function fetchGame() {
 	    
 		$("#headerMessage").text("Who is the best match?");
 		$(".votes_container").show();
+
+		$('#option1ProfilePicture').css("borderWidth", "2px");
+		$('#option2ProfilePicture').css("borderWidth", "2px");
+		$('#option3ProfilePicture').css("borderWidth", "2px");
+		
 
 	    if (data.result.is_complete) {
 	    	var option1Votes = data.result.options[0].num_of_votes;
@@ -71,6 +80,39 @@ function fetchGame() {
 			}
 
 			$(".votes_container").hide();
+	    } else { 
+			var option1Votes = data.result.options[0].num_of_votes;
+		    var option2Votes = data.result.options[1].num_of_votes;
+		    var option3Votes = data.result.options[2].num_of_votes;
+		    var highestNumberOfVotes = 0;
+
+			if (option1VotesOld < option1Votes) {
+				$('#option1ProfilePicture').animate({
+					borderWidth: 8
+				});
+			} else {
+				$('#option1ProfilePicture').css("borderWidth", "2px");
+			}
+
+			if (option2VotesOld < option2Votes) {
+				$('#option2ProfilePicture').animate({
+					borderWidth: 8
+				});
+			} else {
+				$('#option2ProfilePicture').css("borderWidth", "2px");
+			}
+
+			if (option3VotesOld < option3Votes) {
+				$('#option3ProfilePicture').animate({
+					borderWidth: 8
+				});
+			} else {
+				$('#option3ProfilePicture').css("borderWidth", "2px");
+			}
+
+			option1VotesOld = option1Votes;
+			option2VotesOld = option2Votes;
+			option3VotesOld = option3Votes;
 	    }
 	    
 	}).fail(function (e) { 
