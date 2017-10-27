@@ -108,6 +108,7 @@ function initializeGame(res, db) {
 		var millis = date.getTime();
 		game_expiration = millis + GAME_DURATION_MILLIS;
 
+		console.log("*** TABLE CREATED " + game_id);
 		db.GameTable.create({
 			game_id: gameId, 
 			expiration: String(game_expiration), 

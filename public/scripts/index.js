@@ -25,6 +25,6 @@ $(document).ready(function() {
 	fetchGame();
 
 	var interval = setInterval(function() {
-        fetchGame();
+        // fetchGame();
     }, 1000)
 });
