@@ -28,6 +28,10 @@ app.post('/game', function(req, res) {
 	gameManager.vote(req, res, db);
 });
 
+app.get('/reset', function(req, res) {
+	gameManager.reset();
+});
+
 db.sequelize.sync().then(function() {
   	app.listen(process.env.PORT || 8080);
 });

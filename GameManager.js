@@ -1,20 +1,23 @@
-var GAME_DURATION_MILLIS = 60000;
+var GAME_DURATION_MILLIS = 10000;
 var MAX_NUM_OF_GAMES = 2
 var game_id = 0;
 var game_expiration = 0;
 var loop = false;
+var isGameInProgress = false;
+var isVotingAllowed = false;
 
 var GameManager = function() {
 	
 }
 
-function sendGame1(res, game) {
+function sendGame1(res, game, isComplete) {
 	console.log("send game 1");
 	res.send({
 		result : {
 				game_id: game.game_id, 
 				expiration: game.expiration, 
 				type: game.type, 
+				is_complete: isComplete,
 				profile: [{
 					profile_id: "1",
 					img_url: "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=1500&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
@@ -45,13 +48,14 @@ function sendGame1(res, game) {
 		});
 }
 
-function sendGame2(res, game) {
+function sendGame2(res, game, isComplete) {
 	console.log("send game 2");
 	res.send({
 		result : {
 				game_id: game.game_id, 
 				expiration: game.expiration, 
 				type: game.type, 
+				is_complete: isComplete,
 				profile: [{
 					profile_id: "2",
 					img_url: "https://images.unsplash.com/photo-1501943416256-08140ba03763?w=836&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
@@ -101,40 +105,55 @@ function initializeGame(res, db) {
 	console.log("Current Millis " + currentTimeMillis);
 	console.log(game_id);
 
-	if (currentTimeMillis >= game_expiration) {
+	if (currentTimeMillis >= game_expiration && !isGameInProgress) {
 		game_id += 1
 		var gameId = String(game_id);
 		var date = new Date();
-		var millis = date.getTime();
+		var millis = Date.now();
 		game_expiration = millis + GAME_DURATION_MILLIS;
+		console.log(String(game_expiration));
 
-		console.log("*** TABLE CREATED " + game_id);
 		db.GameTable.create({
 			game_id: gameId, 
-			expiration: String(game_expiration), 
+			expiration: game_expiration, 
 			type: "matchmaker", 
 			option_1: "0", 
 		  	option_2: "0",
 		  	option_3: "0"
 		}).then(game => {
+			isGameInProgress = true;
+			isVotingAllowed = true;
 			if (game_id % MAX_NUM_OF_GAMES == 0) { 
-				sendGame1(res, game);
+				sendGame1(res, game, false);
 			} else if (game_id % MAX_NUM_OF_GAMES == 1) {
-				sendGame2(res, game);
+				sendGame2(res, game, false);
 			}
 		});
-	} else {
+	} else if (currentTimeMillis < game_expiration &&isGameInProgress) {
 		sendExistingTable(game_id, function(game) {
 			if (game_id % MAX_NUM_OF_GAMES == 0) { 
-				sendGame1(res, game);
+				sendGame1(res, game, false);
 			} else if (game_id % MAX_NUM_OF_GAMES == 1) {
-				sendGame2(res, game);
+				sendGame2(res, game, false);
+			}
+		});
+	} else if (currentTimeMillis >= game_expiration && isGameInProgress) {
+		isVotingAllowed = false;
+		sendExistingTable(game_id, function(game) {
+			if (game_id % MAX_NUM_OF_GAMES == 0) { 
+				sendGame1(res, game, true);
+			} else if (game_id % MAX_NUM_OF_GAMES == 1) {
+				sendGame2(res, game, true);
 			}
 		});
 	}
 }
 
 function vote(res, db, gameId, option) {
+	if (!isVotingAllowed) {
+		return;
+	}
+
 	db.GameTable.find({
 				where : { 
 					game_id : String(gameId)
@@ -180,6 +199,10 @@ GameManager.prototype.vote = function(req, res, db) {
 			status : "success"
 		});
 	}
+}
+
+GameManager.prototype.reset = function(req, res, db) { 
+	isGameInProgress = false;
 }
 
 module.exports = new GameManager();
