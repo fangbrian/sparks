@@ -63,8 +63,6 @@ function fetchGame() {
 
 			if (highestNumberOfVotes == option1Votes) {
 				$('#option1ProfilePicture').css({opacity: 1});
-				$('#option1ProfilePicture').css({height: 180});
-				$('#option1ProfilePicture').css({width: 180});
 				$('#option1ProfilePicture').css("borderWidth", "10px");
 			} else {
 				$('#option1ProfilePicture').css({opacity: 0.5});
@@ -72,8 +70,6 @@ function fetchGame() {
 
 			if (highestNumberOfVotes == option2Votes) {
 				$('#option2ProfilePicture').css({opacity: 1});
-				$('#option2ProfilePicture').css({height: 180});
-				$('#option2ProfilePicture').css({width: 180});
 				$('#option2ProfilePicture').css("borderWidth", "10px");
 			} else {
 				$('#option2ProfilePicture').css({opacity: 0.5});
@@ -81,8 +77,6 @@ function fetchGame() {
 
 			if (highestNumberOfVotes == option3Votes) {
 				$('#option3ProfilePicture').css({opacity: 1});
-				$('#option3ProfilePicture').css({height: 180});
-				$('#option3ProfilePicture').css({width: 180});
 				$('#option3ProfilePicture').css("borderWidth", "10px");
 			} else {
 				$('#option3ProfilePicture').css({opacity: 0.5});
