@@ -20,6 +20,7 @@ function fetchGame() {
 		$('#option3ProfilePicture').css({opacity: 1});
 	    
 		$("#headerMessage").text("Who is the best match?");
+		$(".votes_container").show();
 
 	    if (data.result.is_complete) {
 	    	var option1Votes = data.result.options[0].num_of_votes;
@@ -50,6 +51,8 @@ function fetchGame() {
 		    } else {
 		    	$("#headerMessage").text("We have a winner. Sending bagel now...");
 			}
+
+			$(".votes_container").hide();
 	    }
 	    
 	}).fail(function (e) { 
