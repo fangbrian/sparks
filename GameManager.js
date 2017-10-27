@@ -17,7 +17,7 @@ function sendGame1(res, game) {
 				type: game.type, 
 				profile: [{
 					profile_id: "1",
-					img_url: "https://images.unsplash.com/photo-1496361060943-f0ae4e7228f4?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+					img_url: "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=1500&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
 					description: "This is a bagel", 
 					video_url: ""
 				}],
@@ -54,7 +54,7 @@ function sendGame2(res, game) {
 				type: game.type, 
 				profile: [{
 					profile_id: "2",
-					img_url: "https://images.unsplash.com/photo-1496361060943-f0ae4e7228f4?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+					img_url: "https://images.unsplash.com/photo-1501943416256-08140ba03763?w=836&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
 					description: "This is a bagel", 
 					video_url: ""
 				}],
