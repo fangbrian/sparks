@@ -20,7 +20,7 @@ function sendGame1(res, game, isComplete) {
 				is_complete: isComplete,
 				profile: [{
 					profile_id: "1",
-					img_url: "https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?w=1500&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+					img_url: "http://res.cloudinary.com/cmb/image/upload/v1509135096/test_folder/Holly.png",
 					description: "This is a bagel", 
 					video_url: ""
 				}],
@@ -28,19 +28,19 @@ function sendGame1(res, game, isComplete) {
 					{
 						option_id: "1",
 						num_of_votes: game.option_1,
-						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509135133/test_folder/Teddy.jpg",
 						description: "option 1"
 					},
 					{
 						option_id: "2",
 						num_of_votes: game.option_2,
-						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509134876/test_folder/alice.jpg",
 						description: "option 2"
 					},
 					{
 						option_id: "3",
 						num_of_votes: game.option_3,
-						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509134881/test_folder/david_miller.jpg",
 						description: "option 3"
 					}
 				]
@@ -58,7 +58,7 @@ function sendGame2(res, game, isComplete) {
 				is_complete: isComplete,
 				profile: [{
 					profile_id: "2",
-					img_url: "https://images.unsplash.com/photo-1501943416256-08140ba03763?w=836&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+					img_url: "http://res.cloudinary.com/cmb/image/upload/v1509135051/test_folder/lukasz_photo.jpg",
 					description: "This is a bagel", 
 					video_url: ""
 				}],
@@ -66,19 +66,19 @@ function sendGame2(res, game, isComplete) {
 					{
 						option_id: "1",
 						num_of_votes: game.option_1,
-						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509136053/pineapple3_jinryr.jpg",
 						description: "option 1"
 					},
 					{
 						option_id: "2",
 						num_of_votes: game.option_2,
-						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509134898/test_folder/cher.jpg",
 						description: "option 2"
 					},
 					{
 						option_id: "3",
 						num_of_votes: game.option_3,
-						img_url: "https://images.unsplash.com/photo-1492476801580-00fb76d294d3?w=668&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D",
+						img_url: "http://res.cloudinary.com/cmb/image/upload/v1509134886/test_folder/melissa.jpg",
 						description: "option 3"
 					}
 				]

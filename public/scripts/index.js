@@ -61,24 +61,27 @@ function fetchGame() {
 		    	$("#headerMessage").text("We have a winner. Sending bagel now...");
 			}
 
-			if (highestNumberOfVotes == option1Votes) {
+			if (highestNumberOfVotes == option1Votes && option1Votes != 0) {
 				$('#option1ProfilePicture').css({opacity: 1});
 				$('#option1ProfilePicture').css("borderWidth", "10px");
 			} else {
+				$('#option1ProfilePicture').css("borderWidth", "2x");
 				$('#option1ProfilePicture').css({opacity: 0.5});
 			}
 
-			if (highestNumberOfVotes == option2Votes) {
+			if (highestNumberOfVotes == option2Votes && option2Votes != 0) {
 				$('#option2ProfilePicture').css({opacity: 1});
 				$('#option2ProfilePicture').css("borderWidth", "10px");
 			} else {
+				$('#option2ProfilePicture').css("borderWidth", "2px");
 				$('#option2ProfilePicture').css({opacity: 0.5});
 			}
 
-			if (highestNumberOfVotes == option3Votes) {
+			if (highestNumberOfVotes == option3Votes && option3Votes != 0) {
 				$('#option3ProfilePicture').css({opacity: 1});
 				$('#option3ProfilePicture').css("borderWidth", "10px");
 			} else {
+				$('#option3ProfilePicture').css("borderWidth", "2px");
 				$('#option3ProfilePicture').css({opacity: 0.5});
 			}
 
