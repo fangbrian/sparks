@@ -34,4 +34,5 @@ app.get('/reset', function(req, res) {
 
 db.sequelize.sync().then(function() {
   	app.listen(process.env.PORT || 8080);
+  	gameManager.initialize();
 });

@@ -205,4 +205,19 @@ GameManager.prototype.reset = function(req, res, db) {
 	isGameInProgress = false;
 }
 
+GameManager.prototype.initialize = function() { 
+	db.GameTable.findAll({
+		raw: true
+	}).then(games => {
+		var max_game_index = 0;
+		for (i = 0; i < games.length; i++) {
+			if (parseInt(games[i].game_id) > max_game_index) {
+				max_game_index = parseInt(games[i].game_id);
+			}
+		}
+
+		game_id = max_game_index;
+		console.log("INIT " + game_id);
+	});
+}
 module.exports = new GameManager();
