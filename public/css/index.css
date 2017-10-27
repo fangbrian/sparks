@@ -65,6 +65,18 @@
     border-width: 2px;
   }
 
+  .blue {
+  	border-color: #1e9cfd;
+  }
+
+  .red {
+  	border-color: #EA1069;
+  }
+
+  .yellow { 
+  	border-color: #F3DE8A;
+   }
+
 .votes_text {
 	color: #ff70d1;
     margin-top: -47px;

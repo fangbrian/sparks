@@ -52,6 +52,24 @@ function fetchGame() {
 		    	$("#headerMessage").text("We have a winner. Sending bagel now...");
 			}
 
+			if (highestNumberOfVotes == option1Votes) {
+				$('#option1ProfilePicture').css({opacity: 1});
+			} else {
+				$('#option1ProfilePicture').css({opacity: 0.5});
+			}
+
+			if (highestNumberOfVotes == option2Votes) {
+				$('#option2ProfilePicture').css({opacity: 1});
+			} else {
+				$('#option2ProfilePicture').css({opacity: 0.5});
+			}
+
+			if (highestNumberOfVotes == option3Votes) {
+				$('#option3ProfilePicture').css({opacity: 1});
+			} else {
+				$('#option3ProfilePicture').css({opacity: 0.5});
+			}
+
 			$(".votes_container").hide();
 	    }
 	    
