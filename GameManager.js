@@ -1,4 +1,4 @@
-var GAME_DURATION_MILLIS = 30000;
+var GAME_DURATION_MILLIS = 35000;
 var MAX_NUM_OF_GAMES = 2
 var game_id = 0;
 var game_expiration = 0;
